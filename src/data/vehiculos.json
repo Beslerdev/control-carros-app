@@ -1,0 +1,27 @@
+[
+  {
+    "id": "C-101",
+    "cliente": "Cliente A",
+    "variedad": "Maíz",
+    "kilos": 5000,
+    "tipoEmpaque": "granel",
+    "ingreso": "2026-04-20",
+    "salida": "2026-04-22",
+    "recibe": "Juan",
+    "despacha": "Pedro",
+    "estado": "En Planta"
+  },
+  {
+    "id": "T-202",
+    "cliente": "Cliente B",
+    "variedad": "Soja",
+    "kilos": 3000,
+    "tipoEmpaque": "bigbag",
+    "ingreso": "2026-04-18",
+    "salida": "2026-04-21",
+    "recibe": "María",
+    "despacha": "Luis",
+    "estado": "Listos para salida"
+  }
+]
+
