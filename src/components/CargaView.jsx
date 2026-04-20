@@ -10,7 +10,7 @@ const tipos = [
 const CargaView = ({ onAgregar }) => {
   const [tipoSeleccionado, setTipoSeleccionado] = useState(null);
   const [formData, setFormData] = useState({
-    id: "",
+    descripcion: "",
     cliente: "",
     variedad: "",
     kilos: "",
@@ -28,7 +28,7 @@ const CargaView = ({ onAgregar }) => {
     onAgregar({ ...formData, tipoEmpaque: tipoSeleccionado });
     setTipoSeleccionado(null);
     setFormData({
-      id: "",
+      descripcion: "",
       cliente: "",
       variedad: "",
       kilos: "",
@@ -43,20 +43,20 @@ const CargaView = ({ onAgregar }) => {
     <div>
       {!tipoSeleccionado ? (
         <div className="selector">
-          <h2>Selecciona tipo de ingreso</h2>
+          <h2>Selecciona tipo de carga</h2>
           <div className="imagenes">
             {tipos.map((t) => (
               <div key={t.key} className="opcion" onClick={() => setTipoSeleccionado(t.key)}>
                 <img src={t.img} alt={t.label} />
-                <p>{t.label}</p>
+                <span className="label">{t.label}</span>
               </div>
             ))}
           </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="formulario">
-          <label>ID</label>
-          <input name="id" value={formData.id} onChange={handleChange} />
+          <label>Descripción del carro</label>
+          <input name="descripcion" value={formData.descripcion} onChange={handleChange} />
 
           <label>Cliente</label>
           <input name="cliente" value={formData.cliente} onChange={handleChange} />
@@ -87,6 +87,7 @@ const CargaView = ({ onAgregar }) => {
 };
 
 export default CargaView;
+
 
 
 
