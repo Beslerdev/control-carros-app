@@ -1,6 +1,6 @@
 import React from "react";
 
-const VehiculoCard = ({ vehiculo, onCambiarEstado }) => {
+const VehiculoCard = ({ vehiculo, onCambiarEstado, onEliminar }) => {
   const imagen = `/assets/${vehiculo.tipoEmpaque}.png`;
 
   return (
@@ -8,7 +8,7 @@ const VehiculoCard = ({ vehiculo, onCambiarEstado }) => {
       <img src={imagen} alt={vehiculo.tipoEmpaque} />
       <div>
         <p>
-          {vehiculo.id} | {vehiculo.cliente} <br />
+          {vehiculo.descripcion} | {vehiculo.cliente} <br />
           {vehiculo.variedad} | {vehiculo.kilos} kg | {vehiculo.tipoEmpaque}
         </p>
         <p>
@@ -23,12 +23,16 @@ const VehiculoCard = ({ vehiculo, onCambiarEstado }) => {
           <option value="Listos para salida">Listos para salida</option>
           <option value="Despachados">Despachados</option>
         </select>
+        <button onClick={() => onEliminar(vehiculo.id)} className="btn-eliminar">
+          Eliminar
+        </button>
       </div>
     </div>
   );
 };
 
 export default VehiculoCard;
+
 
 
 

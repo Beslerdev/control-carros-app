@@ -1,7 +1,7 @@
 import React from "react";
 import VehiculoCard from "./VehiculoCard";
 
-const Tablero = ({ vehiculos, onCambiarEstado }) => {
+const Tablero = ({ vehiculos, onCambiarEstado, onEliminar }) => {
   const estados = ["En Planta", "Listos para salida", "Despachados"];
 
   return (
@@ -13,7 +13,12 @@ const Tablero = ({ vehiculos, onCambiarEstado }) => {
             {vehiculos
               .filter((v) => v.estado === estado)
               .map((v) => (
-                <VehiculoCard key={v.id} vehiculo={v} onCambiarEstado={onCambiarEstado} />
+                <VehiculoCard
+                  key={v.id}
+                  vehiculo={v}
+                  onCambiarEstado={onCambiarEstado}
+                  onEliminar={onEliminar}
+                />
               ))}
           </div>
         </div>
@@ -23,6 +28,7 @@ const Tablero = ({ vehiculos, onCambiarEstado }) => {
 };
 
 export default Tablero;
+
 
 
 

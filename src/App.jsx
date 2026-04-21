@@ -5,7 +5,7 @@ import vehiculosIniciales from "./data/vehiculos.json";
 import "./App.css";
 
 function App() {
-  const [vista, setVista] = useState("planta"); // "carga" o "planta"
+  const [vista, setVista] = useState("planta");
   const [vehiculos, setVehiculos] = useState(vehiculosIniciales);
 
   const agregarVehiculo = (nuevo) => {
@@ -21,6 +21,10 @@ function App() {
     );
   };
 
+  const eliminarVehiculo = (id) => {
+    setVehiculos(vehiculos.filter((v) => v.id !== id));
+  };
+
   return (
     <div>
       <h1>Control de Carros y Tolvas en Planta</h1>
@@ -31,13 +35,18 @@ function App() {
       {vista === "carga" ? (
         <CargaView onAgregar={agregarVehiculo} />
       ) : (
-        <PlantaView vehiculos={vehiculos} onCambiarEstado={cambiarEstado} />
+        <PlantaView
+          vehiculos={vehiculos}
+          onCambiarEstado={cambiarEstado}
+          onEliminar={eliminarVehiculo}
+        />
       )}
     </div>
   );
 }
 
 export default App;
+
 
 
 
