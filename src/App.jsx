@@ -9,7 +9,7 @@ function App() {
   const [vehiculos, setVehiculos] = useState(vehiculosIniciales);
 
   const agregarVehiculo = (nuevo) => {
-    setVehiculos([...vehiculos, { ...nuevo, estado: "En Planta" }]);
+    setVehiculos([...vehiculos, { ...nuevo, estado: "En Planta", id: Date.now() }]);
     setVista("planta");
   };
 
@@ -17,6 +17,14 @@ function App() {
     setVehiculos(
       vehiculos.map((v) =>
         v.id === id ? { ...v, estado: nuevoEstado } : v
+      )
+    );
+  };
+
+  const cambiarSalida = (id, nuevaFecha) => {
+    setVehiculos(
+      vehiculos.map((v) =>
+        v.id === id ? { ...v, salida: nuevaFecha } : v
       )
     );
   };
@@ -38,6 +46,7 @@ function App() {
         <PlantaView
           vehiculos={vehiculos}
           onCambiarEstado={cambiarEstado}
+          onCambiarSalida={cambiarSalida}
           onEliminar={eliminarVehiculo}
         />
       )}
@@ -46,6 +55,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

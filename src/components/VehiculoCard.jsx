@@ -1,6 +1,6 @@
 import React from "react";
 
-const VehiculoCard = ({ vehiculo, onCambiarEstado, onEliminar }) => {
+const VehiculoCard = ({ vehiculo, onCambiarEstado, onCambiarSalida, onEliminar }) => {
   const imagen = `/assets/${vehiculo.tipoEmpaque}.png`;
 
   return (
@@ -12,7 +12,14 @@ const VehiculoCard = ({ vehiculo, onCambiarEstado, onEliminar }) => {
           {vehiculo.variedad} | {vehiculo.kilos} kg | {vehiculo.tipoEmpaque}
         </p>
         <p>
-          Ingreso: {vehiculo.ingreso} | Salida: {vehiculo.salida} <br />
+          Ingreso: {vehiculo.ingreso} | 
+          Salida: 
+          <input
+            type="date"
+            value={vehiculo.salida}
+            onChange={(e) => onCambiarSalida(vehiculo.id, e.target.value)}
+          />
+          <br />
           Recibe: {vehiculo.recibe} | Despacha: {vehiculo.despacha}
         </p>
         <select

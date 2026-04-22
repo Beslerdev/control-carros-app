@@ -1,7 +1,7 @@
 import React from "react";
 import VehiculoCard from "./VehiculoCard";
 
-const Tablero = ({ vehiculos, onCambiarEstado, onEliminar }) => {
+const Tablero = ({ vehiculos, onCambiarEstado, onCambiarSalida, onEliminar }) => {
   const estados = ["En Planta", "Listos para salida", "Despachados"];
 
   return (
@@ -17,6 +17,7 @@ const Tablero = ({ vehiculos, onCambiarEstado, onEliminar }) => {
                   key={v.id}
                   vehiculo={v}
                   onCambiarEstado={onCambiarEstado}
+                  onCambiarSalida={onCambiarSalida}
                   onEliminar={onEliminar}
                 />
               ))}
